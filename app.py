@@ -2,6 +2,8 @@ from trivia import app, db, socketio
 import trivia.views
 from flask_socketio import emit, send
 import json
+from flask.json import jsonify
+from trivia.views import get_scoreboard, get_scoreboard_non_json
 
 @socketio.on('connect')
 def test_connect():
@@ -24,7 +26,7 @@ def handle_message(message):
     except:
         print("not json")
     print('received message: ' + message)
-    send(message)
+    send(message + "i am here")
 
 
 @socketio.on('json')
@@ -42,7 +44,15 @@ def handle_json(json):
 @socketio.on('my_event')
 def handle_my_custom_event(data):
     print('received args: ' + data)
-    send(data)
+    somthing = [5 , 6 , 3 , 'hfghf' , 'qqq' , 'maria' , 9]
+    emit( 'otherevent' ,somthing)
+
+
+@socketio.on('get_scoreboard')
+def scoreboard(data):
+    res = get_scoreboard_non_json()
+    print (res)
+    emit( 'scoreboard' ,res)
 
 
 if __name__ == '__main__':

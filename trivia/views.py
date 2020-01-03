@@ -29,3 +29,8 @@ def get_scoreboard():
     scoreboard_res = Score.query.order_by(desc(Score.score)).all()
     scoreboard = [i.as_dict() for i in scoreboard_res]
     return jsonify(scoreboard)
+
+def get_scoreboard_non_json():
+    scoreboard_res = Score.query.order_by(desc(Score.score)).all()
+    scoreboard = [i.as_dict() for i in scoreboard_res]
+    return scoreboard
