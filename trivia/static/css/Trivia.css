@@ -1,0 +1,55 @@
+
+.category
+{
+ margin: 30px;
+ cursor: pointer;
+ background-color: #eaf3f0;
+}
+
+
+.selected_category {color: lightgray; text-shadow: antiquewhite; font-style: italic; }
+
+.cat_start {margin-top: 20%;}
+
+.answer { background-color:#eaf2f9; max-width: 800px;}
+
+.answer:hover {
+    background-color: #053e69;
+    color: white;
+  }
+
+#promo { max-height: 5cm;}
+
+.correct_ans
+{
+  background-color: green;
+}
+
+#start-grid {display: grid;}
+
+#start-padding {padding-bottom: 10%;}
+
+#start-btn {margin-top: 1cm;}
+
+#score_add
+{
+  color: green;
+  font-weight: 300;
+  font-style: italic ;
+}
+
+#Time_left
+{
+  position: absolute;
+  right: 10px;
+}
+
+#game {max-width: 1000px;}
+
+.progress {margin-top: 10px; height: 5px;}
+
+.summary {padding-top: 25%;}
+
+h5 {margin :.6rem }
+
+#cat { margin-top: 10px;}
