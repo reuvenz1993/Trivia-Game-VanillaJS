@@ -1,5 +1,5 @@
-from trivia import app,db
+from trivia import app, db, socketio
 import trivia.views
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    socketio.run(app)
