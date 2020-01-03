@@ -29,7 +29,7 @@ $(document).ready(function () {
         $("#start").show(1000);
         chosen_category = e.currentTarget.id;
         chosen_category_id = category_list[chosen_category];
-        $(".selected_category").html('category : ' + chosen_category);
+        $(".selected_category , #cat_start").html('category : ' + chosen_category);
     });
 });
 
