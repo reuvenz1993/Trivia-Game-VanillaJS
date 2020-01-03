@@ -34,3 +34,11 @@ def get_scoreboard_non_json():
     scoreboard_res = Score.query.order_by(desc(Score.score)).all()
     scoreboard = [i.as_dict() for i in scoreboard_res]
     return scoreboard
+
+def submit_to_scoreboard_non_json(name , score):
+    _name = name
+    _score = int ( score )
+    print('hi updating scoreboard')
+    new_score = Score( name = _name , score = _score)
+    db.session.add(new_score)
+    db.session.commit()

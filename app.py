@@ -3,7 +3,7 @@ import trivia.views
 from flask_socketio import emit, send
 import json
 from flask.json import jsonify
-from trivia.views import get_scoreboard, get_scoreboard_non_json
+from trivia.views import get_scoreboard, get_scoreboard_non_json, submit_to_scoreboard_non_json
 
 @socketio.on('connect')
 def test_connect():
@@ -53,6 +53,13 @@ def scoreboard(data):
     res = get_scoreboard_non_json()
     print (res)
     emit( 'scoreboard' ,res)
+    return res
+
+@socketio.on('add_to_scoreboard')
+def scoreboard(data):
+    score = data
+    submit_to_scoreboard_non_json(name = data['name'] , score = data['score'] )
+    res = get_scoreboard_non_json()
 
 
 if __name__ == '__main__':

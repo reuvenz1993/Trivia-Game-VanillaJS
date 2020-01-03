@@ -135,11 +135,9 @@ downloadTimer = setInterval(function(){
 //get scoreboard from flask and show it
 function show_scoreboard()
 {
-    $.ajax({
-        type: "post",
-        url: '/get_scoreboard' ,
-        success: function (response) {
-            scoreboard = response
+    socket.emit('get_scoreboard', 'd', function(message ){
+            scoreboard = message;
+
             $('#table_outer_div').remove() //remove table if it exists to avoid showing it twice
 
             //create and append table container div
@@ -164,8 +162,7 @@ function show_scoreboard()
             content += "</tbody>";
 
             $('#table_div').append(content);
-        }});
-
+        });
 };
 
 // add user to scoreboard
@@ -175,11 +172,9 @@ $('#submit_scoreboard').click(function (e) {
 
     $('#submit_scoreboard , #your_name').prop('disabled', true);
 
-    $.ajax({
-        type: "post",
-        url: '/submit_to_scoreboard' ,
-        data: { 'name' : name_to_submit , 'score' : score } ,
-        success: function (response) { show_scoreboard() } });
+        socket.emit('add_to_scoreboard', {'name':'gd', 'score' : 100 }, function(){
+            show_scoreboard();
+        });
 });
 
 
