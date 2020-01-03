@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "env\\Scripts\\python.exe",
+    "python.pythonPath": "c:\\Users\\user\\final_trivia\\trivia\\venv\\Scripts\\python.exe",
     "cSpell.words": [
         "cdnjs",
         "eventlet"
