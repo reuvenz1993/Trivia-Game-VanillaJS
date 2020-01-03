@@ -182,4 +182,12 @@ $('#submit_scoreboard').click(function (e) {
         success: function (response) { show_scoreboard() } });
 });
 
+
+var socket = io();
+socket.on('connect', function() {
+    socket.emit('my event', {data: 'I\'m connected!'});
+});
+
+
+
 $.getScript("/static/js/utils.js", function (script, textStatus, jqXHR) { console.log("import scss"); });
