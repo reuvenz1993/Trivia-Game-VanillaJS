@@ -61,6 +61,7 @@ def scoreboard(data):
     submit_to_scoreboard_non_json(name = data['name'] , score = data['score'] )
     res = get_scoreboard_non_json()
 
-
+'''
 if __name__ == '__main__':
     socketio.run(app, debug = True, use_reloader = False, port=1111)
+'''
