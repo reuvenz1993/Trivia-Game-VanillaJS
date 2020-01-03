@@ -3,13 +3,13 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 from flask_migrate import Migrate
-from flask_socketio import SocketIO
+
 
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
-socketio = SocketIO(app)
+
 
 # Often people will also separate these into a separate config.py file
 
