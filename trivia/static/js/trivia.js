@@ -183,11 +183,24 @@ $('#submit_scoreboard').click(function (e) {
 });
 
 
+/// socket IO
+
+
 var socket = io();
+
 socket.on('connect', function() {
-    socket.emit('my event', {data: 'I\'m connected!'});
+    socket.send('Im connected!');
 });
 
-
+/*
+$('div.card.category').click(function (e) {
+    $("#categories , #promo").hide(1000);
+    $("#start").show(1000);
+    chosen_category = e.currentTarget.id;
+    chosen_category_id = category_list[chosen_category];
+    $(".selected_category").html('category : ' + chosen_category);
+});
+*/
+/// socket IO
 
 $.getScript("/static/js/utils.js", function (script, textStatus, jqXHR) { console.log("import scss"); });
