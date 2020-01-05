@@ -9,8 +9,8 @@ from flask_socketio import SocketIO
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'mysecretkey'
-socketio = SocketIO(app)
+app.secret_key=os.environ.get('SECRET')
+socketio = SocketIO(app, manage_session=False)
 
 
 # Often people will also separate these into a separate config.py file
